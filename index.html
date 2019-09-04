@@ -1,3 +1,102 @@
-<h1>This is index</h1>
+<html>
 
-Hello Hackers
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+<img class="logo" src="/img/logo.png">
+<img class="stripes" src="/img/stripes.png">
+<div id="countdown"></div>
+
+<div id="scroller">
+	<h1><div class="dropdown"><div class="dropdown-a"></div><div class="dropdown-b"></div></div>Scroll</h1>
+</div>
+
+<div class="container">
+	<div class="paragraph">
+		<h1>
+			<div class="dropdown"><div class="dropdown-a"></div><div class="dropdown-b"></div>
+			</div>
+			About X-MAS CTF
+		</h1>
+		
+		<div class="text">
+			X-MAS CTF is a big <a href="https://ctftime.org/ctf-wtf/">Capture the Flag competition</a> at the end of the year. It is organized by the <a href="https://ctftime.org/team/58218">Hecarii, Tuica si Paunii CTF Team</a>, with the purpose of gathering round hackers from all leagues for one last CTF of the year, holiday-style.
+			<br><br>
+			Both beginners and experienced players are welcome in this competition. There will be challenges for every skill level!
+		</div>
+	</div>
+	
+	<div class="paragraph">
+		<h1>
+			<div class="dropdown"><div class="dropdown-a"></div><div class="dropdown-b"></div>
+			</div>
+			Last Year
+		</h1>
+		<div class="text">
+			For our first edition we have had an oustanding number of participants. A total number of <a href="https://ctftime.org/event/724">1375 Teams</a> have participated, where 1023 have solved at least a challenge. There was <a href="https://ctftime.org/team/21137">1 Team</a> who has successfully solved all the challenges.
+			<br><br>
+			
+		</div>
+	</div>
+	
+	<div class="paragraph">
+		<h1>
+			<div class="dropdown"><div class="dropdown-a"></div><div class="dropdown-b"></div>
+			</div>
+			Why should I participate?
+		</h1>
+		<div class="text">
+			Since we have challenges ranging from all sorts of categories and difficulties, everyone will find something to do at X-MAS CTF 2019. The main goal here is to have fun, and to hack.
+			<br><br>
+			Some of the categories that we will have are the classic Web Exploitation, PWN, Reverse Engineering and Crypto, up to some more unique ones like Hardware, OSINT, and even Emulator-Writing.
+			<br><br>
+			We hope to see you on our <a href="https://discordapp.com/invite/9dwXTKF">Discord Server</a> at the time of the competition.
+			<br><br>
+			<i>Merry Christmas! - Sincerely, HTsP</i>
+		</div>
+	</div>
+</div>
+<img class="htsplogo" src="/img/htsplogo.png">
+
+<script>
+	window.onscroll = function () {document.getElementById ("scroller").style.opacity = 0;};
+	
+	var countdown = document.getElementById ("countdown");
+	
+	function updateTime () {
+		var CTFDate = new Date ("December 14, 2019 18:00:00");
+		var diff = (CTFDate.getTime () - Date.now ()) / 1000;
+		console.log (CTFDate.getTime ());
+		console.log (diff);
+		
+		if (diff <= 0) {
+			countdown.innerHTML = "Competition Started!";
+		} else {
+			var days = diff / (60 * 60 * 24);
+			days = Math.floor (days);
+			diff %= 60 * 60 * 24;
+			
+			var hours = diff / (60 * 60);
+			hours = Math.floor (hours);
+			diff %= 60 * 60;
+			
+			var minutes = diff / 60;
+			minutes = Math.floor (minutes);
+			diff %= 60;
+			
+			var seconds = diff;
+			seconds = Math.floor (seconds);
+			
+			countdown.innerHTML = days + " Days / " + hours + " Hours / " + minutes + " Minutes / " + seconds + " Seconds";
+			countdown.innerHTML += "<br>";
+			countdown.innerHTML += "<span class=\"small\">Until X-MAS CTF 2019 Starts</span>";
+		}
+	}
+	
+	updateTime ();
+	setInterval (updateTime, 1000);
+</script>
+</body>
+</html>
